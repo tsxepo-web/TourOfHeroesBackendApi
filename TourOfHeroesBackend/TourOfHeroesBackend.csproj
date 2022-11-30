@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>f0914c3a-c68c-4539-80eb-4ea745c611fa</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +18,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HeroesDAL\HeroesDAL.csproj" />
+    <ProjectReference Include="..\HeroesDB\HeroesDB.csproj" />
   </ItemGroup>
 
 </Project>

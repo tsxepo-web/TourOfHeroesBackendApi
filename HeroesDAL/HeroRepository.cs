@@ -1,4 +1,4 @@
-﻿using TourOfHeroesBackend.Models;
+﻿using HeroesDB.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

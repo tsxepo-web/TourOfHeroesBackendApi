@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TourOfHeroesBackend.Models;
-using TourOfHeroesBackend.Repositories;
+using HeroesDB.Entity;
+using HeroesDAL;
 
 namespace TourOfHeroesBackend.Controllers
 {
