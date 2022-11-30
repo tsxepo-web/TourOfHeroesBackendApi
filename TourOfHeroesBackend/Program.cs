@@ -1,6 +1,8 @@
-using TourOfHeroesBackend.Models;
+using HeroesDB.Entity;
 using Microsoft.EntityFrameworkCore;
-using TourOfHeroesBackend.Repositories;
+using HeroesDAL;
+using HeroesDAL.Interfaces;
+using HeroesDB;
 
 var builder = WebApplication.CreateBuilder(args);
 

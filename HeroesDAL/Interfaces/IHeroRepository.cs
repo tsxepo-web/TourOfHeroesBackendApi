@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TourOfHeroesBackend.Models;
+﻿
+//using System.Threading.Tasks;
+using HeroesDB.Entity;
 
-namespace TourOfHeroesBackend.Repositories;
-
-public interface IHeroRepository
+namespace HeroesDAL.Interfaces
 {
-    Task<IEnumerable<Hero>> Get();
-    Task<Hero> Get(int Id);
-    Task<Hero>Create(Hero hero);
-    Task Update(Hero hero);
-    Task Delete(int Id);
+    public interface IHeroRepository
+    {
+        Task<IEnumerable<Hero>> Get();
+        Task<Hero> Get(int Id);
+        Task<Hero> Create(Hero hero);
+        Task Update(Hero hero);
+        Task Delete(int Id);
+    }
 }
-

@@ -1,8 +1,8 @@
-﻿namespace TourOfHeroesBackend.Models;
-
-public class Hero
+﻿namespace HeroesDB.Entity
 {
-    public int Id { get; set; }
-    public string? Name { get; set; }
+    public class Hero
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+    }
 }
-
