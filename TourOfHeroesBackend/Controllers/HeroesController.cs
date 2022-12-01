@@ -19,22 +19,20 @@ namespace TourOfHeroesBackend.Controllers
             _herosRepository = context;
         }
 
-        // GET: api/Heroes
         [HttpGet]
         public async Task<IEnumerable<Hero>> GetHeroes()
         {
             return await _herosRepository.Get();
         }
 
-        // GET: api/Heroes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Hero>> GetHero(int id)
         {
+            var hero = await _herosRepository.Get(id);
+            if (hero == null) {return NotFound();}
             return await _herosRepository.Get(id);
         }
 
-        // PUT: api/Heroes/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutHero(int id,[FromBody] Hero hero)
         {
@@ -46,17 +44,13 @@ namespace TourOfHeroesBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/Heroes
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Hero>> PostHero([FromBody] Hero hero)
+        public async Task<IActionResult> PostHero(Hero hero)
         {
-            var newHero = await _herosRepository.Create(hero);
-
-            return CreatedAtAction(nameof(GetHero), new { id = newHero.Id }, newHero);
+            await _herosRepository.Create(hero);
+            return NotFound();
         }
 
-        // DELETE: api/Heroes/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteHero(int id)
         {

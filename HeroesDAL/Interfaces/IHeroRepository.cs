@@ -1,5 +1,6 @@
-﻿
-//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using HeroesDB.Entity;
 
 namespace HeroesDAL.Interfaces
@@ -8,7 +9,7 @@ namespace HeroesDAL.Interfaces
     {
         Task<IEnumerable<Hero>> Get();
         Task<Hero> Get(int Id);
-        Task<Hero> Create(Hero hero);
+        Task Create(Hero hero);
         Task Update(Hero hero);
         Task Delete(int Id);
     }

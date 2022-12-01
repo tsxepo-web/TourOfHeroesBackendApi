@@ -5,25 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using HeroesDAL.Interfaces;
 using HeroesDB.Entity;
-using HeroesDB;
 using Microsoft.EntityFrameworkCore;
+using HeroesDB.Sqldb;
 
-
-namespace HeroesDAL
+namespace HeroesDAL.SqlServices
 {
-    public class HeroRepository: IHeroRepository
+    public class SqlHeroService : IHeroRepository
     {
 
         private readonly HeroContext _context;
-        public HeroRepository(HeroContext context)
+        public SqlHeroService(HeroContext context)
         {
             _context = context;
         }
-        public async Task<Hero> Create(Hero hero)
+        public async Task Create(Hero hero)
         {
             _context.Heroes.Add(hero);
             await _context.SaveChangesAsync();
-            return hero;
         }
 
         public async Task Delete(int Id)
