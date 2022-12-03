@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HeroesDB.Entity;
 using HeroesDAL.Interfaces;
+using HeroesDAL.MongodbServices;
+using HeroesDAL.SqlServices;
 
 namespace TourOfHeroesBackend.Controllers
 {
@@ -48,7 +50,7 @@ namespace TourOfHeroesBackend.Controllers
         public async Task<IActionResult> PostHero(Hero hero)
         {
             await _herosRepository.Create(hero);
-            return NotFound();
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

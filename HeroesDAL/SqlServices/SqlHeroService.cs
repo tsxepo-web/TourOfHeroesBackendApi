@@ -12,7 +12,6 @@ namespace HeroesDAL.SqlServices
 {
     public class SqlHeroService : IHeroRepository
     {
-
         private readonly HeroContext _context;
         public SqlHeroService(HeroContext context)
         {

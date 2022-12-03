@@ -6,12 +6,12 @@ using HeroesDB.Mongodb;
 using HeroesDAL.MongodbServices;
 using Microsoft.Extensions.Options;
 using HeroesDB.Sqldb;
+using HeroesDAL.SqlServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<IHeroRepository, MongoHeroService>();
-builder.Services.AddSingleton<MongoHeroService>();
 builder.Services.AddDbContext<HeroContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HeroContext")));
 builder.Services.Configure<HeroesDatabaseSettings>(builder.Configuration.GetSection("HeroesDatabaseSettings"));
 builder.Services.AddControllers();
