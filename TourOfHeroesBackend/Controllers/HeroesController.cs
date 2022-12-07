@@ -28,11 +28,11 @@ namespace TourOfHeroesBackend.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hero>> GetHero(int id)
+        public async Task<ActionResult<Hero>> GetHero(int id, string location)
         {
-            var hero = await _herosRepository.Get(id);
+            var hero = await _herosRepository.Get(id, location);
             if (hero == null) {return NotFound();}
-            return await _herosRepository.Get(id);
+            return await _herosRepository.Get(id, location);
         }
 
         [HttpPut("{id}")]
@@ -54,9 +54,9 @@ namespace TourOfHeroesBackend.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteHero(int id)
+        public async Task<ActionResult> DeleteHero(int id, string location)
         {
-            var heroToDelete = await _herosRepository.Get(id);
+            var heroToDelete = await _herosRepository.Get(id, location);
             if (heroToDelete == null)
             {
                 return NotFound();

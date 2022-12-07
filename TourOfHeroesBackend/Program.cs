@@ -11,7 +11,7 @@ using HeroesDAL.SqlServices;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IHeroRepository, MongoHeroService>();
+builder.Services.AddScoped<IHeroRepository, SqlHeroService>();
 builder.Services.AddDbContext<HeroContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HeroContext")));
 builder.Services.Configure<HeroesDatabaseSettings>(builder.Configuration.GetSection("HeroesDatabaseSettings"));
 builder.Services.AddControllers();

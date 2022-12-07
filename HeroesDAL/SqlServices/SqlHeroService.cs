@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using HeroesDAL.Interfaces;
 using HeroesDB.Entity;
+using HeroesDB.OpenWeatherMap;
 using Microsoft.EntityFrameworkCore;
 using HeroesDB.Sqldb;
+using Newtonsoft.Json;
+
 
 namespace HeroesDAL.SqlServices
 {
@@ -24,7 +27,7 @@ namespace HeroesDAL.SqlServices
         }
 
         public async Task Delete(int Id)
-        {
+        { 
             var heroToDelete = await _context.Heroes.FindAsync(Id);
             _context.Heroes.Remove(heroToDelete);
             await _context.SaveChangesAsync();
@@ -35,8 +38,10 @@ namespace HeroesDAL.SqlServices
             return await _context.Heroes.ToListAsync();
         }
 
-        public async Task<Hero> Get(int Id)
+        public async Task<Hero> Get(int Id, string location)
         {
+            OpenWeatherMapSettings settings = new  OpenWeatherMapSettings();
+            await settings.WeatherDetail(location);
             return await _context.Heroes.FindAsync(Id);
         }
 
