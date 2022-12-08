@@ -15,7 +15,7 @@ namespace HeroesDB.Entity
         public string? Description { get; set; }
         public string? Humidity { get; set; }
         public string? TempFeelsLike { get; set; }
-        public string? Temp { get; set; }
+        public double Temp { get; set; }
         public string? TempMax { get; set; }
         public string? TempMin { get; set; }
         public string? WeatherIcon { get; set; }

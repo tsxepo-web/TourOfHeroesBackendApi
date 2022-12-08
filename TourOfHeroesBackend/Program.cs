@@ -7,6 +7,8 @@ using HeroesDAL.MongodbServices;
 using Microsoft.Extensions.Options;
 using HeroesDB.Sqldb;
 using HeroesDAL.SqlServices;
+using Microsoft.NET.StringTools;
+using HeroesDB.OpenWeatherMap;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +17,6 @@ builder.Services.AddScoped<IHeroRepository, SqlHeroService>();
 builder.Services.AddDbContext<HeroContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HeroContext")));
 builder.Services.Configure<HeroesDatabaseSettings>(builder.Configuration.GetSection("HeroesDatabaseSettings"));
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
