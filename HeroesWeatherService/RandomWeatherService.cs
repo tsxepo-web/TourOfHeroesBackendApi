@@ -15,7 +15,6 @@ namespace HeroesWeatherService
         {
             return Task.FromResult(GetRandomWeather());
         }
-
         public WeatherResponse GetRandomWeather()
         {
             var response = new WeatherResponse()

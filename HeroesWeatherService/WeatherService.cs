@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 using HeroesWeatherService.DTO;
 using HeroesWeatherService.Interface;
 
-namespace HeroesWeatherService
+namespace HeroWeatherService
 {
     public class WeatherService : IWeatherService
     {
-        private readonly IWeatherService _weatherService;
-        readonly string _endpoint;
+        private readonly string _endpoint;
+        private readonly string _apiKey;
 
-        public WeatherService(IWeatherService weatherService, string endpoint)
+        public WeatherService(string weatherApiEndpoint, string apiKey)
         {
-            _weatherService = weatherService;
-            _endpoint = endpoint;
+            _apiKey = apiKey;
+            _endpoint = weatherApiEndpoint;
         }
         public async Task<WeatherResponse> GetWeatherAsync(string location)
         {

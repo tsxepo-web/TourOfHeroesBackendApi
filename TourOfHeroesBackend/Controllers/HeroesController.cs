@@ -7,7 +7,7 @@ using HeroesDB.Entity;
 using HeroesDAL.Interfaces;
 using HeroesDAL.MongodbServices;
 using HeroesDAL.SqlServices;
-using H;
+using HeroesWeatherService.Interface;
 
 namespace TourOfHeroesBackend.Controllers
 {
