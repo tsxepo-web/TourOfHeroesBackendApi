@@ -7,6 +7,7 @@ using HeroesDB.Entity;
 using HeroesDAL.Interfaces;
 using HeroesDAL.MongodbServices;
 using HeroesDAL.SqlServices;
+using H;
 
 namespace TourOfHeroesBackend.Controllers
 {
@@ -15,9 +16,11 @@ namespace TourOfHeroesBackend.Controllers
     public class HeroesController : ControllerBase
     {
         private readonly IHeroRepository _herosRepository;
+        private readonly IWeatherService _weatherService;
 
-        public HeroesController(IHeroRepository context)
+        public HeroesController(IHeroRepository context, IWeatherService weatherService)
         {
+            _weatherService = weatherService;   
             _herosRepository = context;
         }
 
@@ -30,7 +33,25 @@ namespace TourOfHeroesBackend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Hero>> GetHero(int id, string location)
         {
+            var weather = await _weatherService.GetWeatherAsync(location);
             var hero = await _herosRepository.Get(id, location);
+
+            if (weather.Temperature >  10 && hero.Power == "fire") 
+            {
+                hero.Weatherboost = true;
+            }
+            else if (weather.Temperature > 10 && hero.Power == "cold")
+            {
+                hero.Weatherboost = false;
+            }
+            else if (weather.Temperature < 10 && hero.Power == "cold")
+            {
+                hero.Weatherboost = true;
+            }
+            else if (weather.Temperature < 10 && hero.Power == "fire")
+            {
+                hero.Weatherboost = false;
+            }
             if (hero == null) {return NotFound();}
             return await _herosRepository.Get(id, location);
         }

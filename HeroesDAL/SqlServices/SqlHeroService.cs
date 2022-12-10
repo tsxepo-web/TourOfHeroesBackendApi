@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using HeroesDAL.Interfaces;
 using HeroesDB.Entity;
-using HeroesDB.OpenWeatherMap;
 using Microsoft.EntityFrameworkCore;
 using HeroesDB.Sqldb;
 using Newtonsoft.Json;
@@ -16,14 +15,9 @@ namespace HeroesDAL.SqlServices
     public class SqlHeroService : IHeroRepository
     {
         private readonly HeroContext _context;
-        private readonly HttpClient _client;
-        private readonly string? apiKey;
-
-        public SqlHeroService(HeroContext context, IConfiguration configuration)
+        public SqlHeroService(HeroContext context)
         {
             _context = context;
-            _client = new();
-            apiKey = configuration["OpenWeatherMapSettings: OpenWeatherMapApiKey"];
         }
         public async Task Create(Hero hero)
         {
@@ -45,8 +39,6 @@ namespace HeroesDAL.SqlServices
 
         public async Task<Hero> Get(int Id, string location)
         {
-            string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&units=metric&cnt=1&appid={1}", location, appId);
-
             return await _context.Heroes.FindAsync(Id);
         }
 
@@ -54,19 +46,6 @@ namespace HeroesDAL.SqlServices
         {
             _context.Entry(hero).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-        }
-
-        public async Task<IEnumerable<ResultViewModel>?> GetLocations(RootObject rootObject)
-        {
-            string requestUri = GetRequestUri(rootObject);
-            HttpResponseMessage response = await _client.GetAsync(requestUri);
-            response.EnsureSuccessStatusCode();
-            ResultViewModel resultViewModel = await response.Content.ReadAsStringAsync();
-            return resultViewModel;
-        }
-
-        public string GetRequestUri(RootObject rootObject) => $"https://openweathermap.org/data/2.5/q={RootObject.City}&limit=5&appid={apiKey}";
-        {
         }
     }
 }
