@@ -3,6 +3,7 @@ using HeroesDB.Sqldb;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeroesDB.Migrations
 {
     [DbContext(typeof(HeroContext))]
-    partial class HeroContextModelSnapshot : ModelSnapshot
+    [Migration("20221216170218_change properties not not null")]
+    partial class changepropertiesnotnotnull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

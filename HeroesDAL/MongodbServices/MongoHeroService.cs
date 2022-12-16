@@ -16,11 +16,11 @@ namespace HeroesDAL.MongodbServices
 
             _heroCollection = MongoDatabase.GetCollection<Hero>(heroDatabaseSettings.Value.HeroCollectionName);
         }
-        public async Task<IEnumerable<Hero>> Get() => await _heroCollection.Find(_ => true).ToListAsync();
-        public async Task<Hero> Get(int id, string location) => await _heroCollection.Find(x=> x.Id == id).FirstOrDefaultAsync();
-        public async Task Create(Hero hero) => await _heroCollection.InsertOneAsync(hero);
-        public async Task Update(Hero hero) => await _heroCollection.ReplaceOneAsync(x => x.Id == hero.Id, hero);
-        public async Task Delete(int id) => await _heroCollection.DeleteOneAsync(x => x.Id == id);
+        public async Task<IEnumerable<Hero>> GetHeroesAsync() => await _heroCollection.Find(_ => true).ToListAsync();
+        public async Task<Hero> GetHeroAsync(int id, string location) => await _heroCollection.Find(x=> x.Id == id).FirstOrDefaultAsync();
+        public async Task CreateHeroAsync(Hero hero) => await _heroCollection.InsertOneAsync(hero);
+        public async Task UpdateHeroAsync(Hero hero) => await _heroCollection.ReplaceOneAsync(x => x.Id == hero.Id, hero);
+        public async Task DeleteHeroAsync(int id) => await _heroCollection.DeleteOneAsync(x => x.Id == id);
 
     }
 }

@@ -7,10 +7,10 @@ namespace HeroesDAL.Interfaces
 {
     public interface IHeroRepository
     {
-        Task<IEnumerable<Hero>> Get();
-        Task<Hero> Get(int Id, string location);
-        Task Create(Hero hero);
-        Task Update(Hero hero);
-        Task Delete(int Id);
+        Task<IEnumerable<Hero>> GetHeroesAsync();
+        Task<Hero> GetHeroAsync(int Id, string location);
+        Task CreateHeroAsync(Hero hero);
+        Task UpdateHeroAsync(Hero hero);
+        Task DeleteHeroAsync(int Id);
     }
 }
