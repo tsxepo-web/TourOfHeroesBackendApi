@@ -35,7 +35,7 @@ namespace TourOfHeroesBackend.Controllers
             var hero = await _herosRepository.GetHeroAsync(id, location);
             if (hero == null) { return NotFound(); }
 
-            else if ((await _weatherService.GetWeatherAsync(location)).Temperature >=  10 && hero.Power == "fire") 
+            else if ((await _weatherService.GetWeatherAsync(location)).Temperature >= 10 && hero.Power == "fire")
             {
                 hero.Weatherboost = true;
             }

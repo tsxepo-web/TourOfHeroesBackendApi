@@ -12,7 +12,7 @@ namespace HeroesDB.Migrations
 {
     [DbContext(typeof(HeroContext))]
     [Migration("20221216170218_change properties not not null")]
-    partial class changepropertiesnotnotnull
+    partial class Changepropertiesnotnotnull
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

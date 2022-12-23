@@ -23,7 +23,7 @@ namespace HeroWeatherService
         {
             using HttpClient client = new();
             var response = await client.GetAsync(_endpoint);
-            var weatherDetails = await response.Content.ReadFromJsonAsync<WeatherResponse>();
+            var weatherDetails = await response.Content.ReadFromJsonAsync<WeatherResponse?>();
             return weatherDetails;
         }
     }

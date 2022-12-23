@@ -5,7 +5,7 @@
 namespace HeroesDB.Migrations
 {
     /// <inheritdoc />
-    public partial class changepropertiesnotnotnull : Migration
+    public partial class Changepropertiesnotnotnull : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
