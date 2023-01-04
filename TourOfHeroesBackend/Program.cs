@@ -11,18 +11,16 @@ using Microsoft.NET.StringTools;
 using HeroesWeatherService;
 using HeroesWeatherService.Interface;
 using HeroWeatherService;
+using HeroesWeatherService.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped(sp =>
-{
-    var endpoint = builder.Configuration["OpenWeatherMapSetting:BaseUrl"];
-    var apiKey = builder.Configuration["OpenWeatherMapSetting:OpenWeatherMapApiKey"];
-    return new WeatherService(endpoint, apiKey);
-});
+var openWeatherConfig = builder.Configuration.GetSection("OpenWeather");
+builder.Services.Configure<OpenWeather>(openWeatherConfig);
+builder.Services.AddHttpClient();
 builder.Services.AddScoped<IHeroRepository, SqlHeroService>();
-builder.Services.AddScoped<IWeatherService, RandomWeatherService>();
+builder.Services.AddScoped<IWeatherService, OpenWeatherService>();
 builder.Services.AddDbContext<HeroContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HeroContext")));
 builder.Services.Configure<HeroesDatabaseSettings>(builder.Configuration.GetSection("HeroesDatabaseSettings"));
 builder.Services.AddControllers();

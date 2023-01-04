@@ -7,6 +7,8 @@ using HeroesDAL.Interfaces;
 using HeroesDAL.MongodbServices;
 using HeroesDAL.SqlServices;
 using HeroesWeatherService.Interface;
+using HeroesWeatherService.Config;
+using MongoDB.Driver.Linq;
 
 namespace TourOfHeroesBackend.Controllers
 {
@@ -30,27 +32,11 @@ namespace TourOfHeroesBackend.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hero>> GetHero(int id, string location)
+        public async Task<ActionResult<Hero>> GetHero(int id, string location, Unit unit=Unit.Metric)
         {
             var hero = await _herosRepository.GetHeroAsync(id, location);
+            var forecast = await _weatherService.GetWeatherAsync(location, unit);
             if (hero == null) { return NotFound(); }
-
-            else if ((await _weatherService.GetWeatherAsync(location)).Temperature >= 10 && hero.Power == "fire")
-            {
-                hero.Weatherboost = true;
-            }
-            else if ((await _weatherService.GetWeatherAsync(location)).Temperature >= 10 && hero.Power == "cold")
-            {
-                hero.Weatherboost = false;
-            }
-            else if ((await _weatherService.GetWeatherAsync(location)).Temperature < 10 && hero.Power == "cold")
-            {
-                hero.Weatherboost = true;
-            }
-            else if ((await _weatherService.GetWeatherAsync(location)).Temperature < 10 && hero.Power == "fire")
-            {
-                hero.Weatherboost = false;
-            }
             return await _herosRepository.GetHeroAsync(id, location);
         }
 
