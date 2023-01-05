@@ -23,18 +23,19 @@ namespace HeroWeatherService
             _openWeatherConfig = opts.Value;    
             _httpClientFactory = httpFactory;
         }
-        public async Task<List<WeatherForecast>> GetWeatherAsync(string location, Unit unit = Unit.Metric)
+        public async Task<WeatherForecast> GetWeatherAsync(string location)
         {
-            string url = BuilderOpenWeatherUrl("forecast", location, unit);
-            var forecasts = new List<WeatherForecast>();
+            string url =  "https://api.openweathermap.org/data/2.5/weather?q={location}&appId={_openWeatherConfig.ApiKey}&units =metric";
+            var forecasts = new WeatherForecast();
             var client = _httpClientFactory.CreateClient();
 
             var response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
             var contentStream = await response.Content.ReadAsStreamAsync();
             var openWeatherResponse = JsonSerializer.Deserialize<OpenWeatherResponse>(contentStream);
             foreach (var forecast in openWeatherResponse.Forecasts)
             {
-                forecasts.Add(new WeatherForecast
+                forecasts = (new WeatherForecast
                 {
                     Date = new DateTime(forecast.Dt),
                     Temp = forecast.Temps.Temp,
@@ -45,12 +46,6 @@ namespace HeroWeatherService
             }
             return forecasts;
         }
-        private string BuilderOpenWeatherUrl(string resource, string location, Unit unit)
-        {
-            return $"https://api.openweathermap.org/data/2.5/{resource}" +
-                   $"?appId={_openWeatherConfig.ApiKey}" +
-                   $"&q={location}" +
-                   $"&units ={unit}";
-        }
+        
     }
 }

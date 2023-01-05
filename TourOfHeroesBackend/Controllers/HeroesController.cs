@@ -32,11 +32,29 @@ namespace TourOfHeroesBackend.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hero>> GetHero(int id, string location, Unit unit=Unit.Metric)
+        public async Task<ActionResult<Hero?>> GetHero(int id, string location)
         {
             var hero = await _herosRepository.GetHeroAsync(id, location);
-            var forecast = await _weatherService.GetWeatherAsync(location, unit);
             if (hero == null) { return NotFound(); }
+            var forecast = await _weatherService.GetWeatherAsync(location);
+            
+                if (forecast.Temp >= 10 && hero.Power == "fire")
+                {
+                    hero.Weatherboost = true;
+                }
+                else if (forecast.Temp < 10 && hero.Power == "fire")
+                {
+                    hero.Weatherboost = false;
+                }
+                else if (forecast.Temp >= 10 && hero.Power == "cold")
+                {
+                    hero.Weatherboost = false;
+                }
+                else if (forecast.Temp < 10 && hero.Power == "cold")
+                {
+                    hero.Weatherboost = true;
+                }
+
             return await _herosRepository.GetHeroAsync(id, location);
         }
 

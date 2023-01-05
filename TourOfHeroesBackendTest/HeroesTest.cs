@@ -27,10 +27,10 @@ namespace TourOfHeroesBackendTest
         }
         
         [Fact]
-        public void GetoHero_ShouldReturnTrueBoostWhenTempWeatherHeroPowerIsFire()
+        public void GetHero_ShouldReturnTrueBoostWhenTempWeatherHeroPowerIsFire()
         {
             var hero = new Hero { Id=1, Name="SuperMan", Power="fire" };
-            var Hotweather = new Main() {Temp = 11};
+            var Hotweather = new WeatherForecast() {Temp = 11};
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
 
@@ -42,7 +42,7 @@ namespace TourOfHeroesBackendTest
         public void GetHero_ShouldReturnTrueWhenWeatherEqualsTenAndHeroPowerIsFire()
         {
             var hero = new Hero { Id = 1, Name = "SuperMan", Power = "fire" };
-            var Hotweather = new Main() { Temp = 10 };
+            var Hotweather = new WeatherForecast() {Temp = 10};
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
             
@@ -54,7 +54,7 @@ namespace TourOfHeroesBackendTest
         public void GetHero_ShouldReturnFalseWhenWeatherGreaterOrEqualsTenAndHeroPowerIsCold()
         {
             var hero = new Hero { Id = 1, Name = "SuperMan", Power = "cold" };
-            var Hotweather = new Main() { Temp = 11 };
+            var Hotweather = new WeatherForecast() { Temp = 11 };
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
 
@@ -66,7 +66,7 @@ namespace TourOfHeroesBackendTest
         public void GetHero_ShouldReturnTrueWhenWeatherLessThanTenAndHeroPowerIsCold()
         {
             var hero = new Hero { Id = 1, Name = "SuperMan", Power = "cold" };
-            var Hotweather = new Main() { Temp = 9 };
+            var Hotweather = new WeatherForecast() { Temp = 9 };
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
 
@@ -78,7 +78,7 @@ namespace TourOfHeroesBackendTest
         public void GetHero_ShouldReturnFalseWhenWeatherLessThanTenAndHeroPowerIsFire()
         {
             var hero = new Hero { Id = 1, Name = "SuperMan", Power = "fire" };
-            var Hotweather = new Main() { Temp = 9 };
+            var Hotweather = new WeatherForecast() { Temp = 9 };
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
 
@@ -90,7 +90,7 @@ namespace TourOfHeroesBackendTest
         public void GetHero_ShouldReturnNullWhenHeroIsEmpty()
         {
             var hero = new Hero { };
-            var Hotweather = new Main() { Temp = 10 };
+            var Hotweather = new WeatherForecast() { Temp = 10 };
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>()))
                         .ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>()))

@@ -16,18 +16,19 @@ using HeroesWeatherService.Config;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var openWeatherConfig = builder.Configuration.GetSection("OpenWeather");
-builder.Services.Configure<OpenWeather>(openWeatherConfig);
+builder.Services.Configure<OpenWeather>(builder.Configuration.GetSection("OpenWeather"));
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IHeroRepository, SqlHeroService>();
 builder.Services.AddScoped<IWeatherService, OpenWeatherService>();
 builder.Services.AddDbContext<HeroContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HeroContext")));
 builder.Services.Configure<HeroesDatabaseSettings>(builder.Configuration.GetSection("HeroesDatabaseSettings"));
+// builder.Services.AddHttpsRedirection(options =>
+// {
+//     options.HttpsPort = 5001;
+// });
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyAllowedSpecificOrigins",
@@ -49,7 +50,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

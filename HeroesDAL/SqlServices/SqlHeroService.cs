@@ -28,6 +28,10 @@ namespace HeroesDAL.SqlServices
         public async Task DeleteHeroAsync(int Id)
         { 
             var heroToDelete = await _context.Heroes.FindAsync(Id);
+            if (heroToDelete is null)
+            {
+                return;
+            }
             _context.Heroes.Remove(heroToDelete);
             await _context.SaveChangesAsync();
         }
@@ -37,7 +41,7 @@ namespace HeroesDAL.SqlServices
             return await _context.Heroes.ToListAsync();
         }
 
-        public async Task<Hero> GetHeroAsync(int Id, string location)
+        public async Task<Hero?> GetHeroAsync(int Id, string location)
         {
             return await _context.Heroes.FindAsync(Id);
         }
