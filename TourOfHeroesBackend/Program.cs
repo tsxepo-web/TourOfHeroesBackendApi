@@ -16,16 +16,13 @@ using HeroesWeatherService.Config;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.Configure<OpenWeather>(builder.Configuration.GetSection("OpenWeather"));
+//var openweathermapKey = builder.Configuration.GetSection("OpenWeather").Get<OpenWeather>();
+//var _weatherApiKey = openweathermapKey.ApiKey;
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IHeroRepository, SqlHeroService>();
 builder.Services.AddScoped<IWeatherService, OpenWeatherService>();
 builder.Services.AddDbContext<HeroContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HeroContext")));
 builder.Services.Configure<HeroesDatabaseSettings>(builder.Configuration.GetSection("HeroesDatabaseSettings"));
-// builder.Services.AddHttpsRedirection(options =>
-// {
-//     options.HttpsPort = 5001;
-// });
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -47,13 +44,16 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options => 
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.RoutePrefix = string.Empty;
+    });
 }
 
 //app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
 app.UseCors("MyAllowedSpecificOrigins");
 app.MapControllers();
 

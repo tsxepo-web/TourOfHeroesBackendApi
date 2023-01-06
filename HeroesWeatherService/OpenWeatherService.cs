@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
+
+
 using System.Text.Json;
 using System.Threading.Tasks;
 using HeroesDB.Entity;
@@ -18,34 +20,26 @@ namespace HeroWeatherService
     {
         private readonly OpenWeather _openWeatherConfig;
         private readonly IHttpClientFactory _httpClientFactory;
-        public OpenWeatherService(IOptions<OpenWeather> opts,IHttpClientFactory httpFactory)
+        public OpenWeatherService(IOptions<OpenWeather> opts, IHttpClientFactory httpFactory)
         {
-            _openWeatherConfig = opts.Value;    
+            _openWeatherConfig = opts.Value ?? throw new ArgumentException(nameof(OpenWeather));    
             _httpClientFactory = httpFactory;
         }
         public async Task<WeatherForecast> GetWeatherAsync(string location)
         {
-            string url =  "https://api.openweathermap.org/data/2.5/weather?q={location}&appId={_openWeatherConfig.ApiKey}&units =metric";
+            //string url =  "https://api.openweathermap.org/data/2.5/weather?q={location}&appid={_openWeatherConfig.ApiKey}&units=metric";
+            string url = "https://api.openweathermap.org/data/2.5/weather?q=Durban&appid=aef67a1273785459520a022feafe6021&units=metric";
             var forecasts = new WeatherForecast();
             var client = _httpClientFactory.CreateClient();
-
             var response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
-            var contentStream = await response.Content.ReadAsStreamAsync();
-            var openWeatherResponse = JsonSerializer.Deserialize<OpenWeatherResponse>(contentStream);
-            foreach (var forecast in openWeatherResponse.Forecasts)
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            var openWeatherResponse = JsonSerializer.Deserialize<OpenWeatherResponse>(jsonResponse);
+            if (openWeatherResponse != null)
             {
-                forecasts = (new WeatherForecast
-                {
-                    Date = new DateTime(forecast.Dt),
-                    Temp = forecast.Temps.Temp,
-                    FeelsLike = forecast.Temps.FeelsLike,
-                    TempMin = forecast.Temps.TempMin,
-                    TempMax = forecast.Temps.TempMax,
-                });
+                forecasts.Temp = openWeatherResponse.Main.Temp;
             }
             return forecasts;
         }
-        
     }
 }

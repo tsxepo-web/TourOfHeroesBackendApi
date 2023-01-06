@@ -8,6 +8,6 @@ namespace HeroesWeatherService.Config
 {
     public class OpenWeather
     {
-        public string ApiKey { get; set; } = null!;
+        public string? ApiKey { get; set; }
     }
 }
