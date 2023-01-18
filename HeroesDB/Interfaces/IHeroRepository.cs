@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HeroesDB.Entity;
+using HeroesSqlDb.Entity;
 
 namespace HeroesSqlDb.Interfaces
 {

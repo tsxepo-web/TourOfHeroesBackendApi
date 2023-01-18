@@ -1,9 +1,8 @@
-﻿using HeroesDAL.Interfaces;
-using HeroesDB.Mongodb;
+﻿using HeroesMongoDB.MongoDbContext;
+using HeroesSqlDb.Entity;
+using HeroesSqlDb.Interfaces;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using HeroesDB.Entity;
-
 
 namespace HeroesMongoDB.MongoDbService
 {
