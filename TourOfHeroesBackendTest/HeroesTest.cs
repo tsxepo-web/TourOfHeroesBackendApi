@@ -1,8 +1,5 @@
 using System.Collections.Generic;
 using Autofac.Extras.Moq;
-using HeroesDAL.Interfaces;
-using HeroesDAL.SqlServices;
-using HeroesDB.Entity;
 using HeroesWeatherService.Interface;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Localization;

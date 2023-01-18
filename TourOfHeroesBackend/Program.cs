@@ -1,16 +1,14 @@
 using HeroesDB.Entity;
 using Microsoft.EntityFrameworkCore;
-using HeroesDAL;
-using HeroesDAL.Interfaces;
-using HeroesDB.Mongodb;
-using HeroesDAL.MongodbServices;
-using HeroesDB.Sqldb;
-using HeroesDAL.SqlServices;
 using Microsoft.NET.StringTools;
 using HeroesWeatherService;
 using HeroesWeatherService.Interface;
 using HeroWeatherService;
 using HeroesWeatherService.Config;
+using HeroesSqlDb.Interfaces;
+using static HeroesSqlDb.SqlService.SqlHeroServices;
+using HeroesSqlDb.SqlDbContext;
+using HeroesMongoDB.MongoDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 

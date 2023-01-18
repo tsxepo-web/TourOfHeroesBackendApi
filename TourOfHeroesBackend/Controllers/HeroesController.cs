@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using HeroesDB.Entity;
-using HeroesDAL.Interfaces;
-using HeroesDAL.MongodbServices;
-using HeroesDAL.SqlServices;
+﻿using Microsoft.AspNetCore.Mvc;
 using HeroesWeatherService.Interface;
-using HeroesWeatherService.Config;
-using MongoDB.Driver.Linq;
-using HeroesWeatherService;
+using HeroesSqlDb.Interfaces;
+using HeroesSqlDb.Entity;
 
 namespace TourOfHeroesBackend.Controllers
 {
