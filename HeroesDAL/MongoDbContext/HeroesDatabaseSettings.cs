@@ -1,4 +1,4 @@
-﻿namespace HeroesDB.Mongodb
+﻿namespace HeroesMongoDB.MongoDbContext
 {
     public class HeroesDatabaseSettings
     {

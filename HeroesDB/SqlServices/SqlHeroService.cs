@@ -10,7 +10,7 @@ using HeroesDB.Sqldb;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
 
-namespace HeroesDAL.SqlServices
+namespace HeroesSqlDb.SqlServices
 {
     public class SqlHeroService : IHeroRepository
     {

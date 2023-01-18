@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using HeroesDB.Entity;
 
-namespace HeroesDAL.Interfaces
+namespace HeroesSqlDb.Interfaces
 {
     public interface IHeroRepository
     {

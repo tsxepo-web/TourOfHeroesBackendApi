@@ -7,7 +7,7 @@ using HeroesDB.Entity;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace HeroesDB.Sqldb
+namespace HeroesSqlDb.SqlDbContext
 {
     public class HeroContext : DbContext
     {

@@ -4,7 +4,8 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using HeroesDB.Entity;
 
-namespace HeroesDAL.MongodbServices
+
+namespace HeroesMongoDB.MongoDbService
 {
     public class MongoHeroService: IHeroRepository
     {

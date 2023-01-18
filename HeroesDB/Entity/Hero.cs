@@ -1,4 +1,4 @@
-﻿namespace HeroesDB.Entity
+﻿namespace HeroesSqlDb.Entity
 {
     public class Hero
     {
