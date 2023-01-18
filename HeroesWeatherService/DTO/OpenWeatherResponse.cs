@@ -9,11 +9,10 @@ namespace HeroesWeatherService.DTO
 {
     public class OpenWeatherResponse
     {
-        public Main Main {get; set;} = null!;
+        public Main main {get; set;} = null!;
     }
-    
     public class Main
     {
-        public double Temp { get; set; }
+        public double temp { get; set; }
     }
 }

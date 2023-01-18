@@ -4,7 +4,6 @@ using HeroesDAL;
 using HeroesDAL.Interfaces;
 using HeroesDB.Mongodb;
 using HeroesDAL.MongodbServices;
-using Microsoft.Extensions.Options;
 using HeroesDB.Sqldb;
 using HeroesDAL.SqlServices;
 using Microsoft.NET.StringTools;
@@ -16,8 +15,11 @@ using HeroesWeatherService.Config;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//var openweathermapKey = builder.Configuration.GetSection("OpenWeather").Get<OpenWeather>();
-//var _weatherApiKey = openweathermapKey.ApiKey;
+var openweathermapKey = builder.Configuration.GetSection("OpenWeather").Get<OpenWeather>();
+if (openweathermapKey != null)
+{
+var _weatherApiKey = openweathermapKey.ApiKey;
+}
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IHeroRepository, SqlHeroService>();
 builder.Services.AddScoped<IWeatherService, OpenWeatherService>();

@@ -1,4 +1,5 @@
 ﻿using HeroesDB.Entity;
+using HeroesWeatherService.DTO;
 
 namespace HeroesWeatherService.Interface
 {
