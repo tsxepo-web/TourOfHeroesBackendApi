@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace HeroesDB.Migrations
+namespace HeroesSqlDb.Migrations
 {
     [DbContext(typeof(HeroContext))]
     partial class HeroContextModelSnapshot : ModelSnapshot

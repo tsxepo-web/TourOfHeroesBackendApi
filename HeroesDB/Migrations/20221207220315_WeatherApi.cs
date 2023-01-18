@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace HeroesDB.Migrations
+namespace HeroesSqlDb.Migrations
 {
     /// <inheritdoc />
     public partial class WeatherApi : Migration
