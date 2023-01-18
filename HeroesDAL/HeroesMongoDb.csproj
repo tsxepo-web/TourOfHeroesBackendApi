@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HeroesDB\HeroesDB.csproj" />
+    <ProjectReference Include="..\HeroesDB\HeroesSqlDb.csproj" />
   </ItemGroup>
 
 </Project>

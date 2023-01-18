@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HeroesDAL\HeroesDAL.csproj" />
-    <ProjectReference Include="..\HeroesDB\HeroesDB.csproj" />
+    <ProjectReference Include="..\HeroesDAL\HeroesMongoDb.csproj" />
+    <ProjectReference Include="..\HeroesDB\HeroesSqlDb.csproj" />
     <ProjectReference Include="..\HeroesWeatherService\HeroesWeatherService.csproj" />
   </ItemGroup>
 

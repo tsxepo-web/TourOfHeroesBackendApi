@@ -5,9 +5,9 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TourOfHeroesBackend", "TourOfHeroesBackend\TourOfHeroesBackend.csproj", "{5A0F5FCF-6595-4B23-A007-ABBEFEFC068A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroesDAL", "HeroesDAL\HeroesDAL.csproj", "{03257FB3-E6F2-4B71-A41D-E2F8509947F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroesMongoDb", "HeroesDAL\HeroesMongoDb.csproj", "{03257FB3-E6F2-4B71-A41D-E2F8509947F9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroesDB", "HeroesDB\HeroesDB.csproj", "{7C360B25-2B44-4DFE-89DA-6E9FF2D3B5A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroesSqlDb", "HeroesDB\HeroesSqlDb.csproj", "{7C360B25-2B44-4DFE-89DA-6E9FF2D3B5A9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroesWeatherService", "HeroesWeatherService\HeroesWeatherService.csproj", "{A55F440F-0AA8-4940-A451-3021BA826E1E}"
 EndProject
