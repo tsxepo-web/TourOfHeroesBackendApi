@@ -1,10 +1,11 @@
-﻿namespace HeroesSqlDb.Entity
+﻿namespace HeroesSqlDb.Entity;
+
+public class Hero
 {
-    public class Hero
-    {
-        public int Id { get; set; } 
-        public string Name { get; set; } = null!;
-        public string Power { get; set; } = null!;
-        public bool Weatherboost { get; set; }
-    }
+    public int Id { get; set; } 
+    public string? Name { get; set; }
+    public Powers Powers { get; set; }
+    public int[]? Weatherboost { get; set; }
+    public int PowerLevel {get; set;}
+    public bool IsVillain {get; set;}
 }
