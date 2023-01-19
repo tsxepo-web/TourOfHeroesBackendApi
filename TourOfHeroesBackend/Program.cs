@@ -1,4 +1,3 @@
-using HeroesDB.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.NET.StringTools;
 using HeroesWeatherService;
@@ -6,9 +5,9 @@ using HeroesWeatherService.Interface;
 using HeroWeatherService;
 using HeroesWeatherService.Config;
 using HeroesSqlDb.Interfaces;
-using static HeroesSqlDb.SqlService.SqlHeroServices;
 using HeroesSqlDb.SqlDbContext;
 using HeroesMongoDB.MongoDbContext;
+using HeroesSqlDb.SqlService;
 
 var builder = WebApplication.CreateBuilder(args);
 

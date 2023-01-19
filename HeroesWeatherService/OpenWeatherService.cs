@@ -8,7 +8,6 @@ using System.Text;
 
 using System.Text.Json;
 using System.Threading.Tasks;
-using HeroesDB.Entity;
 using HeroesWeatherService.Config;
 using HeroesWeatherService.DTO;
 using HeroesWeatherService.Interface;

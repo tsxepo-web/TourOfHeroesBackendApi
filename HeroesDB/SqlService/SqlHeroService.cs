@@ -10,8 +10,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HeroesSqlDb.SqlService
 {
-    public class SqlHeroServices
-    {
         public class SqlHeroService : IHeroRepository
         {
             private readonly HeroContext _context;
@@ -52,5 +50,4 @@ namespace HeroesSqlDb.SqlService
                 await _context.SaveChangesAsync();
             }
         }
-    }
 }
