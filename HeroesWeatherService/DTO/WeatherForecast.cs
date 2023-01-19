@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroesDB.Entity
+namespace HeroesWeatherService.DTO;
+
+public class WeatherForecast
 {
-    public class WeatherForecast
-    {
-        public double Temp { get; set; }
-    }
+    public double Temp { get; set; }
 }
