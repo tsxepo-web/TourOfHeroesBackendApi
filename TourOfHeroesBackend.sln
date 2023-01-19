@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroesWeatherService", "Her
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TourOfHeroesBackendTest", "TourOfHeroesBackendTest\TourOfHeroesBackendTest.csproj", "{6A82A7F5-46FF-47F0-9D48-10DDC14F710D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleLogic", "BattleLogic\BattleLogic.csproj", "{AE3AD3F5-5378-4CED-BE00-1DF453660C24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6A82A7F5-46FF-47F0-9D48-10DDC14F710D}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{6A82A7F5-46FF-47F0-9D48-10DDC14F710D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A82A7F5-46FF-47F0-9D48-10DDC14F710D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE3AD3F5-5378-4CED-BE00-1DF453660C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3AD3F5-5378-4CED-BE00-1DF453660C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3AD3F5-5378-4CED-BE00-1DF453660C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3AD3F5-5378-4CED-BE00-1DF453660C24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

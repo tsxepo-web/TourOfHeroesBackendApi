@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BattleLogic\BattleLogic.csproj" />
     <ProjectReference Include="..\HeroesDAL\HeroesMongoDb.csproj" />
     <ProjectReference Include="..\HeroesDB\HeroesSqlDb.csproj" />
     <ProjectReference Include="..\HeroesWeatherService\HeroesWeatherService.csproj" />

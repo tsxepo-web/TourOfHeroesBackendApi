@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeroesSqlDb.Migrations
 {
     [DbContext(typeof(HeroContext))]
-    [Migration("20230119003159_ModifyProperties")]
-    partial class ModifyProperties
+    [Migration("20230119012740_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
