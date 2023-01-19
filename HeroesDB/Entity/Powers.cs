@@ -1,5 +1,5 @@
 namespace HeroesDB.Entity;
-enum Powers 
+public enum Powers 
 {
     Fire,
     Air,

@@ -30,62 +30,62 @@ namespace TourOfHeroesBackendTest
         [Fact]
         public void GetoHero_ShouldReturnTrueBoostWhenTempWeatherHeroPowerIsFire()
         {
-            var hero = new Hero { Id=1, Name="SuperMan", Power="fire" };
+            var hero = new Hero { Id=1, Name="SuperMan", Powers = Powers.Air };
             var Hotweather = new WeatherResponse() {Temperature = 11};
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
 
             var response = _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.True(response.Value?.Weatherboost, "weather should be true");
+            Assert.True(response.Value?.IsHero, "weather should be true");
         }
         [Fact]
         public void GetHero_ShouldReturnTrueWhenWeatherEqualsTenAndHeroPowerIsFire()
         {
-            var hero = new Hero { Id = 1, Name = "SuperMan", Power = "fire" };
+            var hero = new Hero { Id = 1, Name = "SuperMan", Powers = Powers.Fire };
             var Hotweather = new WeatherResponse() { Temperature = 10 };
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
             
             var response =  _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.True(response.Value?.Weatherboost, "weather should be true");
+            Assert.True(response.Value?.IsHero, "weather should be true");
         }
         [Fact]
         public void GetHero_ShouldReturnFalseWhenWeatherGreaterOrEqualsTenAndHeroPowerIsCold()
         {
-            var hero = new Hero { Id = 1, Name = "SuperMan", Power = "cold" };
+            var hero = new Hero { Id = 1, Name = "SuperMan", Powers = Powers.Fire };
             var Hotweather = new WeatherResponse() { Temperature = 11 };
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
 
             var response = _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.False(response.Value?.Weatherboost, "weather should be false");
+            Assert.False(response.Value?.IsHero, "weather should be false");
         }
         [Fact]
         public void GetHero_ShouldReturnTrueWhenWeatherLessThanTenAndHeroPowerIsCold()
         {
-            var hero = new Hero { Id = 1, Name = "SuperMan", Power = "cold" };
+            var hero = new Hero { Id = 1, Name = "SuperMan", Powers = Powers.Fire };
             var Hotweather = new WeatherResponse() { Temperature = 9 };
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
 
             var response = _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.True(response.Value?.Weatherboost, "weather should be true");
+            Assert.True(response.Value?.IsHero, "weather should be true");
         }
         [Fact]
         public void GetHero_ShouldReturnFalseWhenWeatherLessThanTenAndHeroPowerIsFire()
         {
-            var hero = new Hero { Id = 1, Name = "SuperMan", Power = "fire" };
+            var hero = new Hero { Id = 1, Name = "SuperMan", Powers = Powers.Fire };
             var Hotweather = new WeatherResponse() { Temperature = 9 };
             _heroService.Setup(repo => repo.GetHeroAsync(It.IsAny<int>(), It.IsAny<string>())).ReturnsAsync(hero);
             _weatherService.Setup(repo => repo.GetWeatherAsync(It.IsAny<string>())).ReturnsAsync(Hotweather);
 
             var response = _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.False(response.Value?.Weatherboost, "weather should be false");
+            Assert.False(response.Value?.IsHero, "weather should be false");
         }
         [Fact]
         public void GetHero_ShouldReturnNullWhenHeroIsEmpty()
@@ -118,7 +118,7 @@ namespace TourOfHeroesBackendTest
         [Fact]
         public void DeleteHero_ShouldVerifyDeleteHeroAsyncMethodIsCalledOnce()
         {
-            var hero = new Hero { Id = 1, Name = "SuperMan", Power = "fire" };
+            var hero = new Hero { Id = 1, Name = "SuperMan", Powers = Powers.Fire };
             _heroService.Setup(x => x.GetHeroAsync(hero.Id, It.IsAny<string>()))
                         .ReturnsAsync(hero);
             _heroService.Setup(x => x.DeleteHeroAsync(hero.Id))
@@ -131,7 +131,7 @@ namespace TourOfHeroesBackendTest
         [Fact]
         public void PutHero_ShouldBreakIfHeroIdIsNotFound()
         {
-            var hero = new Hero { Id = 1, Name = "SuperMan", Power = "fire" };
+            var hero = new Hero { Id = 1, Name = "SuperMan", Powers = Powers.Fire };
             _heroService.Setup(x => x.UpdateHeroAsync(hero))
                         .Returns(Task.CompletedTask);
 
@@ -142,7 +142,7 @@ namespace TourOfHeroesBackendTest
         [Fact]
         public void PutHero_ShouldVerifyIfUpdateHeroAsyncMethodIsCalledOnce()
         {
-            var hero = new Hero { Id = 1, Name = "SuperMan", Power = "fire" };
+            var hero = new Hero { Id = 1, Name = "SuperMan", Powers = Powers.Fire };
             _heroService.Setup(x => x.UpdateHeroAsync(hero))
                         .Returns(Task.CompletedTask);
 
