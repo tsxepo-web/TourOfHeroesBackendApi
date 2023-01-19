@@ -38,27 +38,9 @@ namespace TourOfHeroesBackend.Controllers
             var hero = await _herosRepository.GetHeroAsync(id, location);
             if (hero == null) { return NotFound(); }
             var forecast = await _weatherService.GetWeatherAsync(location);
-            if (forecast.Temp >= 10 && hero.Power == "fire")
-            {
-                hero.Weatherboost = true;
-            }
-            else if (forecast.Temp < 10 && hero.Power == "fire")
-            {
-                hero.Weatherboost = false;
-            }
-            else if (forecast.Temp >= 10 && hero.Power == "cold")
-            {
-                hero.Weatherboost = false;
-            }
-            else if (forecast.Temp < 10 && hero.Power == "cold")
-            {
-                hero.Weatherboost = true;
-            }
-
-<<<<<<< HEAD
             
-=======
->>>>>>> d7b9f3ff8032b9ffbb951cda924e149b1a5c4da0
+
+            
             return await _herosRepository.GetHeroAsync(id, location);
         }
 
