@@ -10,6 +10,7 @@ using HeroesWeatherService.Interface;
 using HeroesWeatherService.Config;
 using MongoDB.Driver.Linq;
 using HeroesWeatherService;
+using GameLogic;
 
 namespace TourOfHeroesBackend.Controllers
 {
@@ -38,8 +39,8 @@ namespace TourOfHeroesBackend.Controllers
             var hero = await _herosRepository.GetHeroAsync(id, location);
             if (hero == null) { return NotFound(); }
             var forecast = await _weatherService.GetWeatherAsync(location);
-            
-
+            var logic = new Battle();
+            logic.Logic(hero, forecast);
             
             return await _herosRepository.GetHeroAsync(id, location);
         }

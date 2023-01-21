@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  
+  <ItemGroup>
+    <ProjectReference Include="..\HeroesDB\HeroesDB.csproj" />
+    <ProjectReference Include="..\HeroesWeatherService\HeroesWeatherService.csproj" />
+  </ItemGroup>
+
 </Project>
