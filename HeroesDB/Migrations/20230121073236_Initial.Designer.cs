@@ -11,15 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeroesDB.Migrations
 {
     [DbContext(typeof(HeroContext))]
-    [Migration("20221207220315_WeatherApi")]
-    partial class WeatherApi
+    [Migration("20230121073236_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0")
+                .HasAnnotation("ProductVersion", "7.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -32,14 +32,21 @@ namespace HeroesDB.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Power")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Weatherboost")
+                    b.Property<bool>("IsHero")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PowerLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Powers")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Weatherboost")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

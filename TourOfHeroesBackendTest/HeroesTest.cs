@@ -37,7 +37,7 @@ namespace TourOfHeroesBackendTest
 
             var response = _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.True(response.Value?.IsHero, "weather should be true");
+            Assert.True(response.Value?.IsVillain, "weather should be true");
         }
         [Fact]
         public void GetHero_ShouldReturnTrueWhenWeatherEqualsTenAndHeroPowerIsFire()
@@ -49,7 +49,7 @@ namespace TourOfHeroesBackendTest
             
             var response =  _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.True(response.Value?.IsHero, "weather should be true");
+            Assert.True(response.Value?.IsVillain, "weather should be true");
         }
         [Fact]
         public void GetHero_ShouldReturnFalseWhenWeatherGreaterOrEqualsTenAndHeroPowerIsCold()
@@ -61,7 +61,7 @@ namespace TourOfHeroesBackendTest
 
             var response = _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.False(response.Value?.IsHero, "weather should be false");
+            Assert.False(response.Value?.IsVillain, "weather should be false");
         }
         [Fact]
         public void GetHero_ShouldReturnTrueWhenWeatherLessThanTenAndHeroPowerIsCold()
@@ -73,7 +73,7 @@ namespace TourOfHeroesBackendTest
 
             var response = _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.True(response.Value?.IsHero, "weather should be true");
+            Assert.True(response.Value?.IsVillain, "weather should be true");
         }
         [Fact]
         public void GetHero_ShouldReturnFalseWhenWeatherLessThanTenAndHeroPowerIsFire()
@@ -85,7 +85,7 @@ namespace TourOfHeroesBackendTest
 
             var response = _controller.GetHero(It.IsAny<int>(), It.IsAny<string>()).Result;
 
-            Assert.False(response.Value?.IsHero, "weather should be false");
+            Assert.False(response.Value?.IsVillain, "weather should be false");
         }
         [Fact]
         public void GetHero_ShouldReturnNullWhenHeroIsEmpty()
