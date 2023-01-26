@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'heroes-backend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D0693D5797FE427788164F9A94A43641 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_236C9842EE324657BCFAEEBEF548FB6A }}
           package: .
