@@ -21,7 +21,7 @@ if (openweathermapKey != null)
 var _weatherApiKey = openweathermapKey.ApiKey;
 }
 builder.Services.AddHttpClient();
-builder.Services.AddScoped<IHeroRepository, SqlHeroService>();
+builder.Services.AddScoped<IHeroRepository, MongoHeroService>();
 builder.Services.AddScoped<IWeatherService, OpenWeatherService>();
 builder.Services.AddDbContext<HeroContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HeroContext")));
 builder.Services.Configure<HeroesDatabaseSettings>(builder.Configuration.GetSection("HeroesDatabaseSettings"));
@@ -49,7 +49,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(options => 
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-        options.RoutePrefix = "swagger";
+        options.RoutePrefix = "";
     });
 }
 
