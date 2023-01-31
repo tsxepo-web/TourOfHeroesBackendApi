@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/57e1873c-49d0-4f87-a75a-5608cf6d108d/AppServices/subscriptions/57e1873c-49d0-4f87-a75a-5608cf6d108d/resourceGroups/Heroes/providers/Microsoft.Web/sites/TourOfHeroesBackend20230128215403",
+    "appService.deploySubpath": "."
+}

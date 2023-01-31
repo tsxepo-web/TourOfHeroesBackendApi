@@ -16,7 +16,11 @@ namespace HeroesDB.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Powers = table.Column<int>(type: "int", nullable: false),
+                    Weatherboost = table.Column<int>(type: "int", nullable: false),
+                    PowerLevel = table.Column<int>(type: "int", nullable: false),
+                    IsHero = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
