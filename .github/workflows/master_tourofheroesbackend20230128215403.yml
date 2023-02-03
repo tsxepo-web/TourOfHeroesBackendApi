@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'TourOfHeroesBackend20230128215403'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0444FE1151E643A7992A97DA8D214A07 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B4D3A3DC5C9647E6BDC86252E619D0A7 }}
           package: .
