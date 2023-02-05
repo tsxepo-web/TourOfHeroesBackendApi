@@ -33,7 +33,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("MyAllowedSpecificOrigins",
         builder =>
         {
-            builder.WithOrigins("https://heroes-backend.azurewebsites.net/api/heroes")
+            builder.WithOrigins("https://tourofheroesbackendtjabane.azurewebsites.net/api/heroes")
             .AllowAnyHeader()
             .AllowAnyMethod();
         });
