@@ -12,6 +12,8 @@ using HeroesWeatherService.Interface;
 using HeroWeatherService;
 using HeroesWeatherService.Config;
 
+var MyAllowedSpecificOrigins = "_myAllowedSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -28,9 +30,10 @@ builder.Services.Configure<HeroesDatabaseSettings>(builder.Configuration.GetSect
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("MyAllowedSpecificOrigins",
+    options.AddPolicy(name: MyAllowedSpecificOrigins,
         builder =>
         {
             builder.WithOrigins("https://tourofheroesbackendtjabane.azurewebsites.net/api/heroes")
@@ -56,7 +59,7 @@ if (app.Environment.IsDevelopment())
 //app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseCors("MyAllowedSpecificOrigins");
+app.UseCors(MyAllowedSpecificOrigins);
 app.MapControllers();
 
 app.Run();
