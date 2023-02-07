@@ -30,19 +30,20 @@ namespace TourOfHeroesBackend.Controllers
         [HttpGet]
         public async Task<IEnumerable<Hero>> GetHeroes()
         {
+            
             return await _herosRepository.GetHeroesAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Hero?>> GetHero(int id, string location)
         {
-            var hero = await _herosRepository.GetHeroAsync(id, location);
+            var hero = await _herosRepository.GetHeroAsync(id, location); 
             if (hero == null) { return NotFound(); }
             var forecast = await _weatherService.GetWeatherAsync(location);
             var logic = new Battle();
-            logic.Logic(hero, forecast);
+            var newHero = logic.Logic(hero, forecast);
             
-            return await _herosRepository.GetHeroAsync(id, location);
+            return newHero;
         }
 
         [HttpPut("{id}")]
