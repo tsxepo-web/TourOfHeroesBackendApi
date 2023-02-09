@@ -2,10 +2,13 @@
 <p>
 </p>
 
-> Uses layered architecture
-> The database layer has a Mongo(No Relation) and Sql(Relation) database.
-> The business layer has MongoDbService and SqlDbService which are the implementations or business rules that talks to the databases and the interface.
-> The IHeroRepository Interface has functions with no implementations that act as an abstraction to decouple the app. 
+> The project uses layered architecture design. Refer to TourOfHeroesArch.drawio.png for a visual design.
+
+## About the project
+This project is created for a simple Hero vs Villain game.
+You choose a Hero, Villain and City. The temperature of the city will be used to score the characters based on their powers.
+
+
 
 
 ## Author
