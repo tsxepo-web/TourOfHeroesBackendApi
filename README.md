@@ -21,6 +21,8 @@ dotnet add package MongoDB.Driver
 
 ### Business Logic Layer
 * To get Weather Details the app uses OpenWeatherMapApi. See [OpenWeatherService](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/HeroesWeatherService/OpenWeatherService.cs) to view the setup.
+* See [SqlDbService](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/HeroesDAL/SqlServices/SqlHeroService.cs) to view the SqlService implementations that talks to the database and interface. 
+* See [MongoDbService](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/HeroesDAL/MongodbServices/MongoHeroService.cs) to view the MongoDbService implementations that talks to the database and interface. 
 * Copy the below to install packages used in this layer:
 ```
 dotnet add package Microsoft.EntityFrameworkCore
@@ -30,6 +32,8 @@ dotnet add package Newtonsoft.Json
 ```
 
 ## Interfaces
+* Dependancy Inversion principle says that higher level components should depend on abstractions rather than concrete implementations.
+* Interfaces are abstract functions that relays data from services to the presentation layer.
 * [IHeroRepository](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/HeroesDAL/Interfaces/IHeroRepository.cs) for the databases.
 * [IWeatherService](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/HeroesWeatherService/Interface/IWeatherService.cs) for the weather services.
 
