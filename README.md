@@ -8,6 +8,12 @@ The project uses layered architecture design. Refer to [TourOfHeroes-Architectur
 This project is created for a simple Hero vs Villain game.
 You choose a Hero, Villain and City. The temperature of the city will be used to score the characters based on their powers.
 
+## Database Layer
+### SqlDb
+Copy the bellow To install packages used in this component are:
+`dotnet add package Microsoft.EntityFrameworkCore`
+`dotnet add package Microsoft.EntityFrameworkCore.SqlServer`
+`dotnet add package Microsoft.EntityFrameworkCore.Tools`
 
 
 
