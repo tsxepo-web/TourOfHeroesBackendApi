@@ -20,8 +20,8 @@ dotnet add package MongoDB.Driver
 ```
 
 ### Business Logic Layer
-* To get Weather Deatails the app uses OpenWeatherMapApi. See [OpenWeatherService](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/HeroesWeatherService/OpenWeatherService.cs) to view the setup.
-* Copy the below To install packages used in this layer:
+* To get Weather Details the app uses OpenWeatherMapApi. See [OpenWeatherService](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/HeroesWeatherService/OpenWeatherService.cs) to view the setup.
+* Copy the below to install packages used in this layer:
 ```
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.Extensions.Http
