@@ -2,7 +2,7 @@
 <p>
 </p>
 
-The project uses layered architecture design. Refer to [a link](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/TourOfHeroesArch.drawio.png) TourOfHeroesArch.drawio.png for a visual design.
+The project uses layered architecture design. Refer to [png](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/TourOfHeroesArch.drawio.png) TourOfHeroesArch.drawio.png for a visual design.
 
 ## About the project
 This project is created for a simple Hero vs Villain game.
