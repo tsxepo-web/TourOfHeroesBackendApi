@@ -23,12 +23,12 @@ namespace HeroWeatherService
         private readonly IHttpClientFactory _httpClientFactory;
         public OpenWeatherService(IOptionsSnapshot<OpenWeather> opts, IHttpClientFactory httpFactory)
         {
-            _openWeatherConfig = opts.Value;    
+            _openWeatherConfig = opts.Value;
             _httpClientFactory = httpFactory;
         }
         public async Task<WeatherForecast> GetWeatherAsync(string location)
         {
-            //string url =  $"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={_openWeatherConfig.ApiKey}&units=metric";
+            //string url = $"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={_openWeatherConfig.ApiKey}&units=metric";
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={location}&appid=aef67a1273785459520a022feafe6021&units=metric";
             var forecasts = new WeatherForecast();
 
@@ -39,9 +39,8 @@ namespace HeroWeatherService
             var openWeatherResponse = JsonConvert.DeserializeObject<OpenWeatherResponse>(jsonResponse);
             if (openWeatherResponse != null)
             {
-            forecasts.Temp = openWeatherResponse.main.temp;
+                forecasts.Temp = openWeatherResponse.main.temp;
             }
-            
             return forecasts;
         }
     }

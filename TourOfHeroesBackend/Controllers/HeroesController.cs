@@ -23,31 +23,29 @@ namespace TourOfHeroesBackend.Controllers
 
         public HeroesController(IHeroRepository context, IWeatherService weatherService)
         {
-            _weatherService = weatherService;   
+            _weatherService = weatherService;
             _herosRepository = context;
         }
 
         [HttpGet]
         public async Task<IEnumerable<Hero>> GetHeroes()
         {
-            
             return await _herosRepository.GetHeroesAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Hero?>> GetHero(int id, string location)
         {
-            var hero = await _herosRepository.GetHeroAsync(id, location); 
+            var hero = await _herosRepository.GetHeroAsync(id, location);
             if (hero == null) { return NotFound(); }
             var forecast = await _weatherService.GetWeatherAsync(location);
             var logic = new Battle();
             var newHero = logic.Logic(hero, forecast);
-            
             return newHero;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHero(int id,[FromBody] Hero hero)
+        public async Task<IActionResult> PutHero(int id, [FromBody] Hero hero)
         {
             if (id != hero.Id)
             {
