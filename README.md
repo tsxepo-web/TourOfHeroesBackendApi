@@ -3,6 +3,9 @@
 </p>
 
 ![TourOfHeroes-Architecture](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/TourOfHeroesArch.drawio.png)
+
+## UML Design
+
 ![Design](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/ApiDesign.drawio.png)
 
 ## Cloud
