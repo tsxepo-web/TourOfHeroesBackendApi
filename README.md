@@ -2,7 +2,7 @@
 <p>
 </p>
 
-The project uses layered architecture design. Refer to ![TourOfHeroes-Architecture](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/TourOfHeroesArch.drawio.png) for a visual design.
+![TourOfHeroes-Architecture](https://github.com/tsxepo-web/TourOfHeroesBackendApi/blob/master/TourOfHeroesArch.drawio.png)
 
 ## About the project
 
