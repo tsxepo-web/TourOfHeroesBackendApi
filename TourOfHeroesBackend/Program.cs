@@ -16,9 +16,9 @@ var builder = WebApplication.CreateBuilder(args);
 DotEnv.Load();
 var envKeys = DotEnv.Read();
 
-var mongoConnectionString = envKeys["ConnectionString"];
-var mongoDatabaseName = envKeys["DatabaseName"];
-var mongoCollectionName = envKeys["CollectionName"];
+var mongoConnectionString = "mongodb://tsxepo:UrppOt8Gwj5AWfZ9d3skk3bRlUkuLCbgLA2PZxzGgrK6PVnJZV0rLQnIdWV0R3upCNuacc7cx9aoACDbSTQzqQ==@tsxepo.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@tsxepo@";
+var mongoDatabaseName = "Heroes";
+var mongoCollectionName = "Hero";
 
 var mongoClient = new MongoClient(mongoConnectionString);
 var mongoDatabase = mongoClient.GetDatabase(mongoDatabaseName);
